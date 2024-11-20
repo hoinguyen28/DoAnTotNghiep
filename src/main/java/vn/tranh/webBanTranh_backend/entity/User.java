@@ -31,6 +31,8 @@ public class User {
     private String phoneNumber; // Số điện thoại
     @Column(name = "avatar")
     private String avatar; // Ảnh đại diện
+    @Column(name = "delivery_address")
+    private String deliveryAddress; // Địa chỉ giao hàng
     @Column(name = "enabled")
     private boolean enabled; // Trạng thái kích hoạt
     @Column(name = "activation_code")
@@ -39,6 +41,18 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER,cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_role"))
     private List<Role> listRoles; // Danh sách role của user
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Order> listOrders; // Danh sách đơn hàng của user
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<FavoritePainting> listFavoritePaintings; // Danh sách các bức tranh yêu thích
+
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<CartItem> listCartItems; // Danh sách hàng trong giỏ của user
+
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Feedbacks> listFeedbacks;
 
     @Override
     public String toString() {

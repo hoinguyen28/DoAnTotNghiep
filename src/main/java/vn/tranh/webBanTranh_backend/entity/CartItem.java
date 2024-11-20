@@ -17,8 +17,8 @@ public class CartItem {
     @JoinColumn(name = "id_painting", nullable = false)
     private Painting painting;
     @ManyToOne()
-    @JoinColumn(name = "id_customer", nullable = false)
-    private Customer customer;
+    @JoinColumn(name = "id_user", nullable = false)
+    private User user;
 
     @Override
     public String toString() {

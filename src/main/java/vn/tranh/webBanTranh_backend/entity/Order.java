@@ -39,8 +39,8 @@ public class Order {
     private List<OrderDetail> listOrderDetails; // Danh sách chi tiết đơn hàng
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "id_customer", nullable = false)
-    private Customer customer; // Người dùng
+    @JoinColumn(name = "id_user", nullable = false)
+    private User user; // Người dùng
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id_payment")

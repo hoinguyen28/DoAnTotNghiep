@@ -33,12 +33,12 @@ public class Painting {
     @OneToMany(mappedBy = "painting",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Image> listImages; // Danh sách ảnh
 
-    @OneToOne(mappedBy = "painting",fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    private List<OrderDetail> listOrderDetails; // Danh sách chi tiết đơn hàng
+    @OneToOne(mappedBy = "painting", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private OrderDetail orderDetail; // Một tranh chỉ có một chi tiết đơn hàng
 
     @OneToMany(mappedBy = "painting",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<FavoritePainting> listFavoritePainting; // Danh sách sách yêu thích
-    @OneToOne(mappedBy = "painting",fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToMany(mappedBy = "painting",fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Feedbacks> listFeedbacks; // Danh sách feedbacks
 
     @OneToMany(mappedBy = "painting",fetch = FetchType.LAZY, cascade = CascadeType.ALL)

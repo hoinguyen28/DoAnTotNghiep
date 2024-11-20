@@ -23,7 +23,7 @@ public class FavoritePainting {
     private Painting painting;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "id_customer", nullable = false)
-    private Customer customer;
+    @JoinColumn(name = "id_user", nullable = false)
+    private User user;
 
 }

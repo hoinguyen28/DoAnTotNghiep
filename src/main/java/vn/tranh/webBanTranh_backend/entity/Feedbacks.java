@@ -23,8 +23,8 @@ public class Feedbacks {
     private Painting painting; // Đánh giá sản phẩm nào
 
     @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "id_customer", nullable = false)
-    private Customer customer; // Khách hàng (ai là người đánh giá)
+    @JoinColumn(name = "id_user", nullable = false)
+    private User user; // Khách hàng (ai là người đánh giá)
 
     @OneToOne( cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id_order_detail")
